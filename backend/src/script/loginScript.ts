@@ -6,9 +6,16 @@ import fs from "fs";
 const puppeteerExtra = addExtra(puppeteer as any);
 puppeteerExtra.use(StealthPlugin());
 
+const chromePath = process.env.CHROME_PATH;
+
+if (!chromePath) {
+  throw new Error("CHROME_PATH is not defined");
+}
+
 export const runLoginFlow = async () => {
   const browser = await puppeteerExtra.launch({
     headless: false,
+    executablePath: chromePath,
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
