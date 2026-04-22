@@ -9,7 +9,7 @@ export const scrapeLinkedIn = async (url: string) => {
 
   //  If no cookies → run login flow FIRST
   if (!cookies) {
-    console.log("⚠️ No cookies found. Starting login flow...");
+    console.log("No cookies found. Starting login flow...");
     await runLoginFlow(); //  opens login page + saves cookies
     cookies = getCookies();
   }

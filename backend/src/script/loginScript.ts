@@ -9,10 +9,16 @@ puppeteerExtra.use(StealthPlugin());
 export const runLoginFlow = async () => {
   const browser = await puppeteerExtra.launch({
     headless: false,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--window-size=500,700",
+      "--app=https://www.linkedin.com/login",
+    ],
+    defaultViewport: { width: 500, height: 700 },
   });
 
-  const page = await browser.newPage();
+  const page = (await browser.pages())[0]!;
 
   await page.goto("https://www.linkedin.com/login", {
     waitUntil: "domcontentloaded",
