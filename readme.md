@@ -24,3 +24,6 @@ npm run dev
 ```
 
 ## System Diagram
+
+<img width="1440" height="1344" alt="image" src="https://github.com/user-attachments/assets/43c9afd5-de97-4930-be9b-ace2e5283688" />
+
